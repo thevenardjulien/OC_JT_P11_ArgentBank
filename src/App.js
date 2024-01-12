@@ -1,9 +1,7 @@
+import Header from "./layout/Header";
+
 function App() {
-  return (
-    <div>
-      <p>Argent Bank</p>
-    </div>
-  );
+  return <Header />;
 }
 
 export default App;
