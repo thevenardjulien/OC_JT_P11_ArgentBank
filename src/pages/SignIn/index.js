@@ -8,7 +8,7 @@ const SignIn = () => {
   return (
     <>
       <Header />
-      <main className="bg-dark">
+      <main className="bg-dark loginContainer">
         <LoginBox />
       </main>
       <Footer />

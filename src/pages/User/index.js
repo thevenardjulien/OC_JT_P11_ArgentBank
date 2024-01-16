@@ -8,7 +8,7 @@ const User = () => {
   return (
     <>
       <Header />
-      <main className="bg-dark">
+      <main className="bg-dark userContainer">
         <h1 className="userTitle">
           Welcome back
           <br />
