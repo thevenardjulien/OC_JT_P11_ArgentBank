@@ -6,8 +6,10 @@ import "./style.scss";
 const Header = () => {
   return (
     <div className="header">
-      <Logo className="header__logo" />
-      <SignIn className="header__link" />
+      <Logo className="header__logo" width="200px" />
+      <nav>
+        <SignIn />
+      </nav>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import "./style.scss";
 const SignIn = () => {
   return (
     <div>
-      <Link to="/sign-in">
+      <Link to="/sign-in" className="sign-in">
         <FontAwesomeIcon icon={faCircleUser} />
         <p>Sign In</p>
       </Link>

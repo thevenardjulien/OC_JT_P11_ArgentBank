@@ -1,9 +1,13 @@
 import React from "react";
 
-const Logo = () => {
+const Logo = (props) => {
   return (
     <div>
-      <img src="/images/argentBankLogo.png" alt="argent Bank Logo" />
+      <img
+        src="/images/argentBankLogo.png"
+        alt="argent Bank Logo"
+        style={{ width: `${props.width}` }}
+      />
     </div>
   );
 };
