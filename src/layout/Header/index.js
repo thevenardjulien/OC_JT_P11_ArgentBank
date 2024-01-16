@@ -1,17 +1,8 @@
 import React from "react";
-import Logo from "../../components/Logo";
-import SignIn from "../../components/SignIn";
-import "./style.scss";
+import MainNav from "../../components/MainNav";
 
 const Header = () => {
-  return (
-    <div className="header">
-      <Logo className="header__logo" width="200px" />
-      <nav>
-        <SignIn />
-      </nav>
-    </div>
-  );
+  return <MainNav />;
 };
 
 export default Header;
