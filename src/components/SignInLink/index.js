@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 
-const SignIn = () => {
+const SignInLink = () => {
   return (
     <div className="sign-in">
       <FontAwesomeIcon icon={faCircleUser} />
@@ -12,4 +12,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInLink;

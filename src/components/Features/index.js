@@ -29,9 +29,9 @@ const Features = () => {
     <div className="features">
       {featuresList.map((feature, index) => {
         return (
-          <div class="feature-item" key={index}>
-            <img src={feature.src} alt={feature.alt} class="feature-icon" />
-            <h3 class="feature-item-title">{feature.title}</h3>
+          <div className="feature-item" key={index}>
+            <img src={feature.src} alt={feature.alt} className="feature-icon" />
+            <h3 className="feature-item-title">{feature.title}</h3>
             <p>{feature.text}</p>
           </div>
         );
