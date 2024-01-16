@@ -9,9 +9,7 @@ const SignIn = () => {
     <>
       <Header />
       <main className="bg-dark">
-        <div className="loginBoxContainer">
-          <LoginBox />
-        </div>
+        <LoginBox />
       </main>
       <Footer />
     </>

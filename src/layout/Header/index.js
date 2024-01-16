@@ -1,8 +1,13 @@
 import React from "react";
 import MainNav from "../../components/MainNav";
+import "./style.scss";
 
 const Header = () => {
-  return <MainNav />;
+  return (
+    <div className="header">
+      <MainNav />
+    </div>
+  );
 };
 
 export default Header;

@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+}
+
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,6 +20,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+main {
+  padding-block: 3rem;
 }
 
 .bg-dark {

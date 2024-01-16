@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 const LoginBox = () => {
   return (
@@ -21,9 +22,9 @@ const LoginBox = () => {
             <label htmlFor="remember-me">Remember me</label>
           </div>
           {/* PLACEHOLDER DUE TO STATIC SITE */}
-          <a href="./user.html" className="sign-in-button">
+          <Link to="/user" className="sign-in-button">
             Sign In
-          </a>
+          </Link>
           {/* SHOULD BE THE BUTTON BELOW
            <button class="sign-in-button">Sign In</button> */}
         </form>
