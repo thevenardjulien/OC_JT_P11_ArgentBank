@@ -1,7 +1,7 @@
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
-import Hero from "./components/Hero";
-import Feature from "./components/Feature";
+import Header from "../layout/Header";
+import Footer from "../layout/Footer";
+import Hero from "../components/Hero";
+import Feature from "../components/Feature";
 import "./App.scss";
 
 function App() {

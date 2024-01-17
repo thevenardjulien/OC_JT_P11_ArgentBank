@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import User from "./pages/User";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import App from "./App/App";
+import { Provider } from "react-redux";
+import { store } from "./App/store";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
