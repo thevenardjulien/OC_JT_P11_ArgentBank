@@ -34,7 +34,7 @@ const User = () => {
           Tony Jarvis!
         </h1>
         <Button text="Edit Name" link="/user" />
-        <h2 class="sr-only">Accounts</h2>
+        <h2 className="sr-only">Accounts</h2>
         <Account accounts={userAccounts} />
       </main>
       <Footer />

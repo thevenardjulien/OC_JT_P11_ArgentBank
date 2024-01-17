@@ -7,7 +7,7 @@ const Feature = ({ list }) => {
       {list &&
         list.map((feature, index) => {
           return (
-            <div className="feature-item" key={index + feature.title}>
+            <div className="feature-item" key={index}>
               <img
                 src={feature.src}
                 alt={feature.alt}

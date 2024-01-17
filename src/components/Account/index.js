@@ -7,7 +7,7 @@ const Account = ({ accounts }) => {
       {accounts &&
         accounts.map((account, index) => {
           return (
-            <section className="account">
+            <section className="account" key={index}>
               <div className="account-content-wrapper">
                 <h3 className="account-title">{account.title}</h3>
                 <p className="account-amount">{account.amount}</p>
