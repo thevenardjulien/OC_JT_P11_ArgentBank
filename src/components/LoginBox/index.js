@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchLogin } from "../../services/fetchLogin";
 import { useDispatch } from "react-redux";
-import { connectedUser } from "../../features/user/userSlice";
+import { connectedUser } from "../../store/user/userSlice";
 import "./style.scss";
 
 const LoginBox = () => {
@@ -20,7 +20,7 @@ const LoginBox = () => {
     response && dispatch(connectedUser(email));
     response && navigate("/user");
   };
-  
+
   return (
     <div>
       <section className="sign-in-content">

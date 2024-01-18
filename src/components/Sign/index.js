@@ -1,9 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { connectedUser } from "../../features/user/userSlice";
+import { connectedUser } from "../../store/user/userSlice";
+import "./style.scss";
 
 const SignInLink = () => {
   const user = useSelector((state) => state.user.value);
