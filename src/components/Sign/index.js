@@ -14,8 +14,10 @@ const SignInLink = () => {
   };
   return (
     <div className="sign-in">
-      {user !== "" && <FontAwesomeIcon icon={faCircleUser} />}
-      {user !== "" && <p>{user}</p>}
+      <div className="sign-in-on">
+        {user !== "" && <FontAwesomeIcon icon={faCircleUser} />}
+        {user !== "" && <p>{user}</p>}
+      </div>
       {user !== "" && <FontAwesomeIcon icon={faSignOut} />}
       {user === "" && <FontAwesomeIcon icon={faCircleUser} />}
       {user === "" ? (
