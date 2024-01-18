@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button";
 import "./style.scss";
 
 const Account = ({ accounts }) => {
@@ -15,7 +16,11 @@ const Account = ({ accounts }) => {
               </p>
             </div>
             <div className="account-content-wrapper cta">
-              <button className="transaction-button">View transactions</button>
+              <Button
+                text="View transactions"
+                link="/user"
+                type="transaction-button"
+              />
             </div>
           </section>
         );

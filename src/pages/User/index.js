@@ -3,8 +3,8 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import Button from "../../components/Button";
 import Account from "../../components/Account";
-import "./style.scss";
 import { useSelector } from "react-redux";
+import "./style.scss";
 
 const User = () => {
   const user = useSelector((state) => state.user.value);
@@ -30,12 +30,14 @@ const User = () => {
     <>
       <Header />
       <main className="bg-dark userContainer">
-        <h1 className="userTitle">
-          Welcome back
-          <br />
-          {user}
-        </h1>
-        <Button text="Edit Name" link="/user" />
+        <div className="userHeader">
+          <h1 className="userTitle">
+            Welcome back
+            <br />
+            {user}
+          </h1>
+          <Button text="Edit Name" link="/user" type="edit-button" />
+        </div>
         <h2 className="sr-only">Accounts</h2>
         <Account accounts={userAccounts} />
       </main>
