@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchLogin } from "../../services/fetchLogin";
 import { useDispatch } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 
 const LoginBox = () => {
@@ -24,7 +26,7 @@ const LoginBox = () => {
   return (
     <div>
       <section className="sign-in-content">
-        <i className="fa fa-user-circle sign-in-icon"></i>
+        <FontAwesomeIcon icon={faCircleUser} />
         <h1>Sign In</h1>
         <form ref={form} onSubmit={(e) => handleLogin(e)}>
           <div className="input-wrapper">
