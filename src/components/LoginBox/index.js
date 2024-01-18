@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchLogin } from "../../functions/fetchLogin";
+import { fetchLogin } from "../../services/fetchLogin";
 import { useDispatch } from "react-redux";
 import { connectedUser } from "../../features/user/userSlice";
 import "./style.scss";
@@ -9,15 +9,18 @@ const LoginBox = () => {
   const form = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Tentative de connexion...");
     const email = form.current.username.value;
     const password = form.current.password.value;
     const response = await fetchLogin(email, password);
-    response && navigate("/user");
+    const token = response.body.token;
+    localStorage.setItem("token", token);
     response && dispatch(connectedUser(email));
+    response && navigate("/user");
   };
+  
   return (
     <div>
       <section className="sign-in-content">

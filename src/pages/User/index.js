@@ -4,8 +4,10 @@ import Footer from "../../layout/Footer";
 import Button from "../../components/Button";
 import Account from "../../components/Account";
 import "./style.scss";
+import { useSelector } from "react-redux";
 
 const User = () => {
+  const user = useSelector((state) => state.user.value);
   const userAccounts = [
     {
       title: "Argent Bank Checking (x8349)",
@@ -31,7 +33,7 @@ const User = () => {
         <h1 className="userTitle">
           Welcome back
           <br />
-          Tony Jarvis!
+          {user}
         </h1>
         <Button text="Edit Name" link="/user" />
         <h2 className="sr-only">Accounts</h2>
