@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchLogin } from "../../functions/fetchLogin";
+import { useDispatch } from "react-redux";
+import { connectedUser } from "../../features/user/userSlice";
 import "./style.scss";
-import { Link } from "react-router-dom";
 
 const LoginBox = () => {
+  const form = useRef();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log("Tentative de connexion...");
+    const email = form.current.username.value;
+    const password = form.current.password.value;
+    const response = await fetchLogin(email, password);
+    response && navigate("/user");
+    response && dispatch(connectedUser(email));
+  };
   return (
     <div>
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
-        <form>
+        <form ref={form} onSubmit={(e) => handleLogin(e)}>
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>
             <input type="text" id="username" />
@@ -21,12 +36,9 @@ const LoginBox = () => {
             <input type="checkbox" id="remember-me" />
             <label htmlFor="remember-me">Remember me</label>
           </div>
-          {/* PLACEHOLDER DUE TO STATIC SITE */}
-          <Link to="/user" className="sign-in-button">
+          <button type="submit" className="sign-in-button">
             Sign In
-          </Link>
-          {/* SHOULD BE THE BUTTON BELOW
-           <button class="sign-in-button">Sign In</button> */}
+          </button>
         </form>
       </section>
     </div>
