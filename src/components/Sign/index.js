@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { faCircleUser, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
 import "./style.scss";
@@ -14,8 +14,10 @@ const SignInLink = () => {
   };
   return (
     <div className="sign-in">
-      {user.length !== "" && <p>{user}</p>}
-      <FontAwesomeIcon icon={faCircleUser} />
+      {user !== "" && <FontAwesomeIcon icon={faCircleUser} />}
+      {user !== "" && <p>{user}</p>}
+      {user !== "" && <FontAwesomeIcon icon={faSignOut} />}
+      {user === "" && <FontAwesomeIcon icon={faCircleUser} />}
       {user === "" ? (
         <p>Sign In</p>
       ) : (
