@@ -10,7 +10,7 @@
   color: #2c3e50;
 }
 
-.main-nav a.router-link-exact-active {
+.main-nav a.isActive {
   color: #42b983;
 }
 
@@ -33,4 +33,8 @@
 
 .main-nav-logo-image {
   max-width: 100%;
+}
+
+.main-nav-links {
+  display: flex;
 }

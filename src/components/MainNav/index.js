@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../Logo";
-import Sign from "../Sign";
+import Sign from "../SignLink";
+import ProfileLink from "../ProfileLink";
 import "./style.scss";
 
 const MainNav = () => {
@@ -10,9 +11,14 @@ const MainNav = () => {
       <NavLink to="/" className="main-nav-logo">
         <Logo width="200px" />
       </NavLink>
-      <NavLink to="/sign-in" className="main-nav-item">
-        <Sign />
-      </NavLink>
+      <div className="main-nav-links">
+        <NavLink to="/profile" className="main-nav-item">
+          <ProfileLink />
+        </NavLink>
+        <NavLink to="/sign-in" className="main-nav-item">
+          <Sign />
+        </NavLink>
+      </div>
     </nav>
   );
 };

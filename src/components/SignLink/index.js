@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
 import "./style.scss";
 
-const SignInLink = () => {
+const SignLink = () => {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
   const handleSignOut = () => {
@@ -14,10 +14,6 @@ const SignInLink = () => {
   };
   return (
     <div className="sign-in">
-      <div className="sign-in-on">
-        {user !== "" && <FontAwesomeIcon icon={faCircleUser} />}
-        {user !== "" && <p>{user}</p>}
-      </div>
       {user !== "" && <FontAwesomeIcon icon={faSignOut} />}
       {user === "" && <FontAwesomeIcon icon={faCircleUser} />}
       {user === "" ? (
@@ -29,4 +25,4 @@ const SignInLink = () => {
   );
 };
 
-export default SignInLink;
+export default SignLink;
