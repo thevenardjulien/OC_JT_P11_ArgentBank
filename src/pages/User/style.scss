@@ -9,3 +9,24 @@
 .edit-button {
   padding: 10px;
 }
+
+.editNameForm {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+}
+
+.editNameForm button {
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.editNameForm input {
+  padding: 10px;
+  outline: none;
+}
