@@ -12,7 +12,7 @@ const MainNav = () => {
         <Logo width="200px" />
       </NavLink>
       <div className="main-nav-links">
-        <NavLink to="/profile" className="main-nav-item">
+        <NavLink to="/user" className="main-nav-item">
           <ProfileLink />
         </NavLink>
         <NavLink to="/sign-in" className="main-nav-item">

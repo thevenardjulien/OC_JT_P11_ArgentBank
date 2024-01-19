@@ -18,8 +18,7 @@ const LoginBox = () => {
     const password = form.current.password.value;
     const response = await fetchLogin(email, password);
     const token = response.body.token;
-    localStorage.setItem("token", token);
-    response && dispatch(connectedUser(email));
+    response && dispatch(connectedUser([email, token]));
     response && navigate("/user");
   };
 

@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 import "./style.scss";
 
 const User = () => {
-  const user = useSelector((state) => state.user.value);
+  const user = useSelector((state) => state.user.value[0]);
+  const token = useSelector((state) => state.user.value[1]);
   const userAccounts = [
     {
       title: "Argent Bank Checking (x8349)",
@@ -30,16 +31,20 @@ const User = () => {
     <>
       <Header />
       <main className="bg-dark userContainer">
-        <div className="userHeader">
-          <h1 className="userTitle">
-            Welcome back
-            <br />
-            {user}
-          </h1>
-          <Button text="Edit Name" link="/user" type="edit-button" />
-        </div>
-        <h2 className="sr-only">Accounts</h2>
-        <Account accounts={userAccounts} />
+        {token && (
+          <>
+            <div className="userHeader">
+              <h1 className="userTitle">
+                Welcome back
+                <br />
+                {user}
+              </h1>
+              <Button text="Edit Name" link="/user" type="edit-button" />
+            </div>
+            <h2 className="sr-only">Accounts</h2>
+            <Account accounts={userAccounts} />
+          </>
+        )}
       </main>
       <Footer />
     </>

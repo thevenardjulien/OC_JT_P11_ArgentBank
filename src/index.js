@@ -21,10 +21,6 @@ const router = createBrowserRouter([
     element: <User />,
   },
   {
-    path: "/profile",
-    element: <div>Profile Page</div>,
-  },
-  {
     path: "*",
     element: "Impossible de trouver la page",
   },
