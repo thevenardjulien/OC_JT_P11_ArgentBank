@@ -4,33 +4,20 @@ import Footer from "../../layout/Footer";
 import Button from "../../components/Button";
 import Account from "../../components/Account";
 import { useDispatch, useSelector } from "react-redux";
-import "./style.scss";
 import { connectedUser } from "../../store/user/userSlice";
+import { userAccounts } from "../../datas/userAccounts";
+import "./style.scss";
 
 const User = () => {
-  const user = useSelector((state) => state.user.value[0]);
-  const token = useSelector((state) => state.user.value[1]);
-  const userName = useSelector((state) => state.user.value[2]);
-  const dispatch = useDispatch();
-  const userAccounts = [
-    {
-      title: "Argent Bank Checking (x8349)",
-      amount: "$2,082.79",
-      description: "Available Balance",
-    },
-    {
-      title: "Argent Bank Savings (x6712)",
-      amount: "$10,928.42",
-      description: "Available Balance",
-    },
-    {
-      title: "Argent Bank Credit Card (x8349)",
-      amount: "$184.30",
-      description: "Current Balance",
-    },
-  ];
-  const [isEditing, setIsEditing] = useState(false);
+  const user = useSelector((state) => state.user.value);
+  const userEmail = useSelector((state) => state.user.value.email);
+  const token = useSelector((state) => state.user.value.token);
+  const userName = useSelector((state) => state.user.value.name);
   const form = useRef();
+
+  const dispatch = useDispatch();
+
+  const [isEditing, setIsEditing] = useState(false);
   const handleEdit = () => {
     setIsEditing(!isEditing);
   };
@@ -38,7 +25,7 @@ const User = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const name = form.current[0].value;
-    dispatch(connectedUser([user, token, name]));
+    dispatch(connectedUser({ ...user, name: name }));
     setIsEditing(false);
   };
 
@@ -61,10 +48,10 @@ const User = () => {
                     <input type="text" />
                     <button>Valider</button>
                   </form>
-                ) : userName !== "" ? (
+                ) : userName ? (
                   userName
                 ) : (
-                  user
+                  userEmail
                 )}
               </h1>
               <div onClick={handleEdit}>

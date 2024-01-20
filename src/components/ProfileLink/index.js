@@ -6,13 +6,14 @@ import "./style.scss";
 
 const ProfileLink = () => {
   const user = useSelector((state) => state.user.value);
-  const userEmail = useSelector((state) => state.user.value[0]);
-  const userName = useSelector((state) => state.user.value[2]);
+  const token = useSelector((state) => state.user.value.token);
+  const userEmail = useSelector((state) => state.user.value.email);
+  const userName = useSelector((state) => state.user.value.name);
 
   return (
     <div className="profileLink">
-      {user !== "" && <FontAwesomeIcon icon={faCircleUser} />}
-      {user !== "" && <p>{userName ? userName : userEmail}</p>}
+      {token && <FontAwesomeIcon icon={faCircleUser} />}
+      {token && <p>{userName ? userName : userEmail}</p>}
     </div>
   );
 };
