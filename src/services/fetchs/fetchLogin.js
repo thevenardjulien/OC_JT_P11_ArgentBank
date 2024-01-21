@@ -8,9 +8,7 @@ export async function fetchLogin(email, password) {
       },
       body: JSON.stringify({ email, password }),
     });
-    console.log("Tentative de connexion...");
     if (response.ok && response.status === 200) {
-      console.log("Connexion réussie");
       return response.json();
     }
   } catch (error) {

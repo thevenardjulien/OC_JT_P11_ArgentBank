@@ -1,12 +1,15 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Logo = ({ width }) => {
   return (
-    <img
-      src="/images/argentBankLogo.png"
-      alt="argent Bank Logo"
-      style={{ width: `${width}` }}
-    />
+    <NavLink to="/" className="main-nav-logo">
+      <img
+        src="/images/argentBankLogo.png"
+        alt="argent Bank Logo"
+        style={{ width: `${width}` }}
+      />
+    </NavLink>
   );
 };
 

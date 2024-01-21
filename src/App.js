@@ -1,8 +1,8 @@
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Hero from "./components/Hero";
-import Feature from "./components/Feature";
-import { featuresList } from "./datas/featuresList";
+import Features from "./components/Features";
+import { featuresList } from "./services/datas/featuresList";
 import "./App.scss";
 
 function App() {
@@ -11,8 +11,9 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <Feature list={featuresList} />
+        <Features list={featuresList} />
       </main>
+
       <Footer />
     </div>
   );

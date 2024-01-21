@@ -19,7 +19,7 @@ const Account = ({ accounts }) => {
               <Button
                 text="View transactions"
                 link="/user"
-                type="transaction-button"
+                className="transaction-button"
               />
             </div>
           </section>

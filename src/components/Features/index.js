@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-const Feature = ({ list }) => {
+const Features = ({ list }) => {
   return (
     <div className="features">
       {list &&
@@ -22,4 +22,4 @@ const Feature = ({ list }) => {
   );
 };
 
-export default Feature;
+export default Features;

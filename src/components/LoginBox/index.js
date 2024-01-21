@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchLogin } from "../../services/fetchLogin";
 import { useDispatch } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
+import { fetchLogin } from "../../services/fetchs/fetchLogin";
 
 const LoginBox = () => {
   const form = useRef();

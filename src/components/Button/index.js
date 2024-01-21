@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-const Button = ({ text, link, type }) => {
+const Button = ({ text, link, className }) => {
   return (
     <Link to={link}>
-      <button className={type}>{text}</button>
+      <button className={className}>{text}</button>
     </Link>
   );
 };

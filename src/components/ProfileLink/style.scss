@@ -4,3 +4,12 @@
   gap: 5px;
   margin-right: 10px;
 }
+
+.profileLink a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.profileLink a.active {
+  color: #42b983;
+}

@@ -46,7 +46,7 @@ const User = () => {
                     className="editNameForm"
                   >
                     <input type="text" />
-                    <button>Valider</button>
+                    <Button text="Confirm" />
                   </form>
                 ) : userName ? (
                   userName
@@ -55,7 +55,11 @@ const User = () => {
                 )}
               </h1>
               <div onClick={handleEdit}>
-                <Button text={editBtnText} link="/user" type="edit-button" />
+                <Button
+                  text={editBtnText}
+                  link="/user"
+                  className="edit-button"
+                />
               </div>
             </div>
             <h2 className="sr-only">Accounts</h2>
