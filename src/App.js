@@ -13,7 +13,6 @@ function App() {
         <Hero />
         <Features list={featuresList} />
       </main>
-
       <Footer />
     </div>
   );

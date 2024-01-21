@@ -14,17 +14,13 @@ const SignLink = () => {
     <div className="sign-in">
       {user !== "" ? (
         <Link to="/" className="main-nav-item">
-          <>
-            <FontAwesomeIcon icon={faSignOut} />
-            <p onClick={() => dispatch(connectedUser(""))}>Sign Out</p>
-          </>
+          <FontAwesomeIcon icon={faSignOut} />
+          <p onClick={() => dispatch(connectedUser(""))}>Sign Out</p>
         </Link>
       ) : (
         <NavLink to="/login" className="main-nav-item">
-          <>
-            <FontAwesomeIcon icon={faCircleUser} />
-            <p>Sign In</p>
-          </>
+          <FontAwesomeIcon icon={faCircleUser} />
+          <p>Sign In</p>
         </NavLink>
       )}
     </div>

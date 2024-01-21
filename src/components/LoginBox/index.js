@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // REDUX
@@ -17,14 +17,20 @@ const LoginBox = () => {
   const dispatch = useDispatch();
   const form = useRef();
 
+  const [error, setError] = useState(false);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = form.current.username.value;
     const password = form.current.password.value;
     const response = await fetchLogin(email, password);
-    const token = response.body.token;
-    dispatch(connectedUser({ email: email, token: token }));
-    navigate("/profile");
+    if (response && response.status === 200) {
+      const token = response.body.token;
+      dispatch(connectedUser({ email: email, token: token }));
+      navigate("/profile");
+    } else {
+      setError(true);
+    }
   };
 
   return (
@@ -48,6 +54,7 @@ const LoginBox = () => {
           <button type="submit" className="sign-in-button">
             Sign In
           </button>
+          {error && <p className="error">Username/password invalid.</p>}
         </form>
       </section>
     </div>
