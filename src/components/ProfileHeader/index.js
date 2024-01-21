@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
-import Button from "../../components/Button";
 import { useSelector } from "react-redux";
+import Button from "../../components/Button";
 import "./style.scss";
 
 const ProfileHeader = () => {
-  const userEmail = useSelector((state) => state.user.value.email);
-  const userName = useSelector((state) => state.user.value.name);
-  const form = useRef();
+  const userName = useSelector((state) => state.user.value.userName);
 
+  //FORM
+  const form = useRef();
   const [isEditing, setIsEditing] = useState(false);
   const handleEdit = () => {
     setIsEditing(!isEditing);
@@ -15,7 +15,6 @@ const ProfileHeader = () => {
   const editBtnText = isEditing ? "Cancel" : "Edit Name";
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(e);
   };
   return (
     <>
@@ -32,10 +31,8 @@ const ProfileHeader = () => {
               <input type="text" />
               <Button text="Confirm" />
             </form>
-          ) : userName ? (
-            userName
           ) : (
-            userEmail
+            userName
           )}
         </h1>
         <div onClick={handleEdit}>

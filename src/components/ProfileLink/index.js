@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const ProfileLink = () => {
   const token = useSelector((state) => state.user.value.token);
   const userEmail = useSelector((state) => state.user.value.email);
-  const userName = useSelector((state) => state.user.value.name);
+  const userName = useSelector((state) => state.user.value.userName);
 
   return (
     <div className="profileLink">
@@ -16,7 +16,7 @@ const ProfileLink = () => {
         <NavLink to="/profile" className="profileLink-item">
           <>
             <FontAwesomeIcon icon={faCircleUser} />
-            <p>{userName ? userName : userEmail}</p>
+            <p>{userName ? `${userName}` : userEmail}</p>
           </>
         </NavLink>
       )}

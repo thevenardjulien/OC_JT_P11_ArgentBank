@@ -1,0 +1,16 @@
+export async function fetchProfile(token) {
+  try {
+    const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok && response.status === 200) {
+      return response.json();
+    }
+  } catch (error) {
+    console.error("Unexpected error. Can't access to profile.");
+  }
+}

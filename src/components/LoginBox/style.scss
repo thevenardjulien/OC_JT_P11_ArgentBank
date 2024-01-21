@@ -48,6 +48,9 @@
 }
 
 .error {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-weight: bold;
   color: red;
   text-align: left;
