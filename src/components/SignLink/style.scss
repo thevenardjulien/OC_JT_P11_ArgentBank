@@ -1,14 +1,27 @@
-.sign-in {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
 .sign-in a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-.sign-in a.active {
+.sign-in a.isActive {
   color: #42b983;
+}
+
+.sign-link-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+.sign-link-item {
+  text-decoration: none;
+  margin-right: 0.5rem;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.sign-link-item:hover {
+  text-decoration: underline;
 }

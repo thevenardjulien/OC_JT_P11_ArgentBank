@@ -13,12 +13,16 @@ const SignLink = () => {
   return (
     <div className="sign-in">
       {user !== "" ? (
-        <Link to="/" className="main-nav-item">
+        <Link
+          to="/"
+          className="sign-link-item"
+          onClick={() => dispatch(connectedUser(""))}
+        >
           <FontAwesomeIcon icon={faSignOut} />
-          <p onClick={() => dispatch(connectedUser(""))}>Sign Out</p>
+          <p>Sign Out</p>
         </Link>
       ) : (
-        <NavLink to="/login" className="main-nav-item">
+        <NavLink to="/login" className="sign-link-item">
           <FontAwesomeIcon icon={faCircleUser} />
           <p>Sign In</p>
         </NavLink>
