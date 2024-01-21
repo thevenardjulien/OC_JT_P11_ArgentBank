@@ -18,7 +18,7 @@ const Account = ({ accounts }) => {
             <div className="account-content-wrapper cta">
               <Button
                 text="View transactions"
-                link="/user"
+                link="/Profile"
                 className="transaction-button"
               />
             </div>

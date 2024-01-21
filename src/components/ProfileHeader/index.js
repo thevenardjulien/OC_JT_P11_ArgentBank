@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
 import Button from "../../components/Button";
 import "./style.scss";
 
 const ProfileHeader = () => {
   const userName = useSelector((state) => state.user.value.userName);
+  const userToken = useSelector((state) => state.user.value.token);
 
   //FORM
   const form = useRef();
