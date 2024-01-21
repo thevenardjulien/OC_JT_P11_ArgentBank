@@ -3,9 +3,9 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import Button from "../../components/Button";
 import Account from "../../components/Account";
+import { userAccounts } from "../../services/datas/userAccounts";
 import { useDispatch, useSelector } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
-import { userAccounts } from "../../datas/userAccounts";
 import "./style.scss";
 
 const User = () => {

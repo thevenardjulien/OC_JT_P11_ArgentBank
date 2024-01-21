@@ -1,16 +1,21 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
+// REDUX
 import { useDispatch } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
+
+// FONTAWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
-import "./style.scss";
+
 import { fetchLogin } from "../../services/fetchs/fetchLogin";
+import "./style.scss";
 
 const LoginBox = () => {
-  const form = useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const form = useRef();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,8 +23,8 @@ const LoginBox = () => {
     const password = form.current.password.value;
     const response = await fetchLogin(email, password);
     const token = response.body.token;
-    response && dispatch(connectedUser({ email: email, token: token }));
-    response && navigate("/user");
+    dispatch(connectedUser({ email: email, token: token }));
+    navigate("/profile");
   };
 
   return (

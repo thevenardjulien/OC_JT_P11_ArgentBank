@@ -13,7 +13,7 @@ const ProfileLink = () => {
   return (
     <div className="profileLink">
       {token && (
-        <NavLink to="/user" className="main-nav-item">
+        <NavLink to="/profile" className="main-nav-item">
           <>
             <FontAwesomeIcon icon={faCircleUser} />
             <p>{userName ? userName : userEmail}</p>
