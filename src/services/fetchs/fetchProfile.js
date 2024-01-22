@@ -21,10 +21,10 @@ export async function fetchEditProfile(userName, token) {
       method: "PUT",
       headers: {
         accept: "application/json",
+        "content-type": "application/json",
         authorization: `Bearer ${token}`,
-        "content-type": "application.json",
       },
-      body: JSON.stringify({ userName: userName }),
+      body: JSON.stringify({ userName: `${userName}` }),
     });
     if (response.ok && response.status === 200) {
       return response.json();
