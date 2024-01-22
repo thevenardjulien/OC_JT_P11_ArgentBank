@@ -4,6 +4,7 @@ import { connectedUser } from "../../store/user/userSlice";
 import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
 import Button from "../../components/Button";
 import "./style.scss";
+import UserInfos from "../UserInfos/UserInfos";
 
 const ProfileHeader = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,11 @@ const ProfileHeader = () => {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     const newUserName = inputRef.current.value;
-    await fetchEditProfile(newUserName, userToken);
-    setIsEditing(false);
-    dispatch(connectedUser({ ...user, userName: newUserName }));
+    if (newUserName.trim() !== "") {
+      await fetchEditProfile(newUserName, userToken);
+      setIsEditing(false);
+      dispatch(connectedUser({ ...user, userName: newUserName }));
+    }
   };
   return (
     <>
@@ -39,14 +42,19 @@ const ProfileHeader = () => {
               onSubmit={(e) => handleSubmitForm(e)}
               className="editNameForm"
             >
-              <input ref={inputRef} type="text" />
+              <UserInfos />
+              <input
+                ref={inputRef}
+                type="text"
+                placeholder="Set new name ..."
+              />
               <button type="submit">Valider</button>
             </form>
           ) : (
             userName
           )}
         </h1>
-        <div onClick={handleEdit}>
+        <div onClick={handleEdit} className="EditBtnContainer">
           <Button text={editBtnText} className="edit-button" />
         </div>
       </div>

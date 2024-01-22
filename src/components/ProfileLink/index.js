@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./style.scss";
 import { NavLink } from "react-router-dom";
+import "./style.scss";
 
 const ProfileLink = () => {
   const token = useSelector((state) => state.user.value.token);

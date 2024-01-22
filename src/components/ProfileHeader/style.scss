@@ -6,6 +6,18 @@
   color: white;
 }
 
+.EditBtnContainer {
+  margin: 0 auto;
+  width: fit-content;
+}
+
 .edit-button {
   padding: 10px;
+}
+
+.editNameForm input,
+.editNameForm input::placeholder {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
 }
