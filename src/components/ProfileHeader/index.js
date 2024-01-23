@@ -4,7 +4,7 @@ import { connectedUser } from "../../store/user/userSlice";
 import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
 import Button from "../../components/Button";
 import "./style.scss";
-import UserInfos from "../UserInfos/UserInfos";
+import UserInfos from "../UserInfos";
 
 const ProfileHeader = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,8 @@ const ProfileHeader = () => {
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Set new name ..."
+                placeholder="Set new user name ..."
+                className="editInput"
               />
               <button type="submit">Valider</button>
             </form>

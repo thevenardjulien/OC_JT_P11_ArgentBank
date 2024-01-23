@@ -35,7 +35,7 @@ const LoginBox = () => {
       const firstName = responseProfile.body.firstName;
       const lastName = responseProfile.body.lastName;
       const userName = responseProfile.body.userName;
-      // STATE UPDATE THEN NAVIGATE TO PROFILE
+      // STORE UPDATE THEN NAVIGATE TO PROFILE
       dispatch(
         connectedUser({
           email: email,
