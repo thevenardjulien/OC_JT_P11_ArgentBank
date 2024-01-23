@@ -9,6 +9,10 @@ export async function fetchProfile(token) {
     });
     if (response.ok && response.status === 200) {
       return response.json();
+    } else if (response.status === 400) {
+      console.error("Invalid Fields");
+    } else if (response.status === 500) {
+      console.error("Internal Server Error");
     }
   } catch (error) {
     console.error("Unexpected error. Can't access to profile.");
@@ -28,6 +32,10 @@ export async function fetchEditProfile(userName, token) {
     });
     if (response.ok && response.status === 200) {
       return response.json();
+    } else if (response.status === 400) {
+      console.error("Invalid Fields");
+    } else if (response.status === 500) {
+      console.error("Internal Server Error");
     }
   } catch (error) {
     console.error("Unexpected error. Can't edit profile.");

@@ -5,7 +5,7 @@ const Logo = ({ width }) => {
   return (
     <NavLink to="/" className="main-nav-logo">
       <img
-        src="/images/argentBankLogo.png"
+        src="/images/argentBankLogo.webp"
         alt="argent Bank Logo"
         style={{ width: `${width}` }}
       />

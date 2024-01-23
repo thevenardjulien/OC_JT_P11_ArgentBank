@@ -1,9 +1,9 @@
 .hero {
-  background-image: url("../../../public/images/bank-tree.jpeg");
+  background-image: url("../../../public/images/bank-tree-mobile.webp");
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 230px;
   position: relative;
 }
 
@@ -32,6 +32,7 @@
   .hero {
     height: 400px;
     background-position: 0% 33%;
+    background-image: url("../../../public/images/bank-tree.webp");
   }
 
   .hero-content {

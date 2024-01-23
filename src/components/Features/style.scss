@@ -4,7 +4,7 @@
 }
 
 .feature-icon {
-  width: 100px;
+  width: 50px;
   border: 10px solid #00bc77;
   border-radius: 50%;
   padding: 1rem;
@@ -25,5 +25,8 @@
 @media (min-width: 920px) {
   .features {
     flex-direction: row;
+  }
+  .feature-icon {
+    width: 100px;
   }
 }
