@@ -1,8 +1,12 @@
 import React from "react";
 import Button from "../Button";
 import "./style.scss";
+import { toast } from "sonner";
 
 const Account = ({ accounts }) => {
+  const handleClick = () => {
+    toast.error("Impossible at the moment");
+  };
   return (
     <div>
       {accounts.map((account, index) => {
@@ -15,7 +19,7 @@ const Account = ({ accounts }) => {
                 {account.description}
               </p>
             </div>
-            <div className="account-content-wrapper cta">
+            <div className="account-content-wrapper cta" onClick={handleClick}>
               <Button
                 text="View transactions"
                 link="/Profile"

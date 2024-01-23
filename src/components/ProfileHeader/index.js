@@ -2,9 +2,10 @@ import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
 import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
+import { Toaster, toast } from "sonner";
 import Button from "../../components/Button";
-import "./style.scss";
 import UserInfos from "../UserInfos";
+import "./style.scss";
 
 const ProfileHeader = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const ProfileHeader = () => {
       await fetchEditProfile(newUserName, userToken);
       setIsEditing(false);
       dispatch(connectedUser({ ...user, userName: newUserName }));
+      toast.success("Username updated correctly");
     }
   };
   return (

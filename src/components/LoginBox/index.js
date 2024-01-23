@@ -9,6 +9,9 @@ import { connectedUser } from "../../store/user/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
+// Toast
+import { toast } from "sonner";
+
 import { fetchLogin } from "../../services/fetchs/fetchLogin";
 import { fetchProfile } from "../../services/fetchs/fetchProfile";
 import "./style.scss";
@@ -50,6 +53,7 @@ const LoginBox = () => {
             token: token,
           })
         );
+        toast.success("Successful identification");
         navigate("/profile");
       }
     } else {
