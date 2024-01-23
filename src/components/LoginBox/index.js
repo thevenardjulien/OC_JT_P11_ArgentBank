@@ -68,7 +68,7 @@ const LoginBox = () => {
             <input
               type="text"
               id="username"
-              minLength="5"
+              minLength="4"
               maxLength="30"
               required
             />

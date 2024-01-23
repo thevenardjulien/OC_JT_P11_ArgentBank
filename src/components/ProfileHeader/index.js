@@ -48,7 +48,7 @@ const ProfileHeader = () => {
                 type="text"
                 placeholder="Set new user name ..."
                 className="editInput"
-                minLength="5"
+                minLength="4"
                 required
                 pattern="^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$"
               />
