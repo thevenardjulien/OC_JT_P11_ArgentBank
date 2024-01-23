@@ -25,27 +25,33 @@ const LoginBox = () => {
     // GET FORM VALUES
     const email = form.current.username.value;
     const password = form.current.password.value;
-    // FETCH LOGIN & GET RESPONSE
-    const responseLogin = await fetchLogin(email, password);
-    if (responseLogin && responseLogin.status === 200) {
-      // IF LOGIN OK => GET TOKEN THEN FETCH PROFILE
-      const token = responseLogin.body.token;
-      const responseProfile = await fetchProfile(token);
-      // GET PROFILE INFOS
-      const firstName = responseProfile.body.firstName;
-      const lastName = responseProfile.body.lastName;
-      const userName = responseProfile.body.userName;
-      // STORE UPDATE THEN NAVIGATE TO PROFILE
-      dispatch(
-        connectedUser({
-          email: email,
-          firstName: firstName,
-          lastName: lastName,
-          userName: userName,
-          token: token,
-        })
-      );
-      navigate("/profile");
+    // FORM REPORT VALIDITY
+    const userNameInput = form.current[0];
+    const passwordInput = form.current[1];
+
+    if (userNameInput.reportValidity() && passwordInput.reportValidity()) {
+      // FETCH LOGIN & GET RESPONSE
+      const responseLogin = await fetchLogin(email, password);
+      if (responseLogin && responseLogin.status === 200) {
+        // IF LOGIN OK => GET TOKEN THEN FETCH PROFILE
+        const token = responseLogin.body.token;
+        const responseProfile = await fetchProfile(token);
+        // GET PROFILE INFOS
+        const firstName = responseProfile.body.firstName;
+        const lastName = responseProfile.body.lastName;
+        const userName = responseProfile.body.userName;
+        // STORE UPDATE THEN NAVIGATE TO PROFILE
+        dispatch(
+          connectedUser({
+            email: email,
+            firstName: firstName,
+            lastName: lastName,
+            userName: userName,
+            token: token,
+          })
+        );
+        navigate("/profile");
+      }
     } else {
       setError(true);
     }

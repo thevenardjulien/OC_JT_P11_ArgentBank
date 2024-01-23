@@ -50,6 +50,7 @@ const ProfileHeader = () => {
                 className="editInput"
                 minLength="5"
                 required
+                pattern="^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$"
               />
               <button type="submit">Valider</button>
             </form>
