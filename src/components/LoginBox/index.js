@@ -59,11 +59,17 @@ const LoginBox = () => {
         <form ref={form} onSubmit={(e) => handleLogin(e)}>
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" />
+            <input
+              type="text"
+              id="username"
+              minLength="5"
+              maxLength="30"
+              required
+            />
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
+            <input type="password" id="password" minLength="8" required />
           </div>
           <div className="input-remember">
             <input type="checkbox" id="remember-me" />

@@ -48,6 +48,8 @@ const ProfileHeader = () => {
                 type="text"
                 placeholder="Set new user name ..."
                 className="editInput"
+                minLength="5"
+                required
               />
               <button type="submit">Valider</button>
             </form>
