@@ -29,6 +29,8 @@ const ProfileHeader = () => {
       await fetchEditProfile(userName, userToken);
       setIsEditing(false);
       dispatch(connectedUser({ ...user, userName: userName }));
+      sessionStorage.removeItem("userName");
+      sessionStorage.setItem("userName", userName);
       toast.success("Username updated correctly");
     } else {
       toast.error("Sorry, Can't use this User Name...");

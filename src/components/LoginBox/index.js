@@ -40,14 +40,20 @@ const LoginBox = () => {
         const firstName = responseProfile.body.firstName;
         const lastName = responseProfile.body.lastName;
         const userName = responseProfile.body.userName;
+        // SET SESSION
+        sessionStorage.setItem("email", email);
+        sessionStorage.setItem("firstName", firstName);
+        sessionStorage.setItem("lastName", lastName);
+        sessionStorage.setItem("userName", userName);
+        sessionStorage.setItem("token", token);
         // STORE UPDATE THEN NAVIGATE TO PROFILE
         dispatch(
           connectedUser({
-            email: email,
-            firstName: firstName,
-            lastName: lastName,
-            userName: userName,
-            token: token,
+            email: sessionStorage.getItem("email"),
+            firstName: sessionStorage.getItem("firstName"),
+            lastName: sessionStorage.getItem("lastName"),
+            userName: sessionStorage.getItem("userName"),
+            token: sessionStorage.getItem("token"),
           })
         );
         toast.success("Successful identification");

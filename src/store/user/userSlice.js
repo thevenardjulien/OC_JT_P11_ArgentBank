@@ -1,8 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  value: "",
-};
+const initialState = sessionStorage.getItem("token")
+  ? {
+      value: {
+        email: sessionStorage.getItem("email"),
+        firstName: sessionStorage.getItem("firstName"),
+        lastName: sessionStorage.getItem("lastName"),
+        userName: sessionStorage.getItem("userName"),
+        token: sessionStorage.getItem("token"),
+      },
+    }
+  : {
+      value: "",
+    };
 
 export const userSlice = createSlice({
   name: "user",
