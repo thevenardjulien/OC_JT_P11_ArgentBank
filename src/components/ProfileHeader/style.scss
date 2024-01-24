@@ -2,12 +2,20 @@
   padding-bottom: 32px;
 }
 
-.userTitle {
+.userTitle,
+.userName {
   color: white;
+  margin-bottom: 0;
+}
+
+.userName {
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .EditBtnContainer {
   margin: 0 auto;
+  margin-top: 20px;
   width: fit-content;
 }
 
@@ -17,12 +25,8 @@
 
 .editInput {
   width: 245px;
-  text-transform: capitalize;
 }
 
-.editNameForm input,
-.editNameForm input::placeholder {
-  font-size: 1rem;
-  font-weight: 600;
-  font-style: italic;
+.editNameFormBtn {
+  min-width: 100px;
 }

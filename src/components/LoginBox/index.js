@@ -1,20 +1,17 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./style.scss";
 // REDUX
 import { useDispatch } from "react-redux";
 import { connectedUser } from "../../store/user/userSlice";
-
 // FONTAWESOME
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCircleUser } from "@fortawesome/free-solid-svg-icons";
-
-// Toast
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// TOAST
 import { toast } from "sonner";
-
+// FETCH
 import { fetchLogin } from "../../services/fetchs/fetchLogin";
 import { fetchProfile } from "../../services/fetchs/fetchProfile";
-import "./style.scss";
 
 const LoginBox = () => {
   const navigate = useNavigate();
@@ -56,9 +53,8 @@ const LoginBox = () => {
         toast.success("Successful identification");
         navigate("/profile");
       }
-    } else {
-      setError(true);
     }
+    setError(true);
   };
 
   return (

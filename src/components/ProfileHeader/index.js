@@ -1,70 +1,79 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { connectedUser } from "../../store/user/userSlice";
-import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import Button from "../../components/Button";
+import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
+import { connectedUser } from "../../store/user/userSlice";
 import UserInfos from "../UserInfos";
 import "./style.scss";
 
 const ProfileHeader = () => {
   const dispatch = useDispatch();
+
   const user = useSelector((state) => state.user.value);
-  const userName = useSelector((state) => state.user.value.userName);
+  const [userName, setUserName] = useState(
+    useSelector((state) => state.user.value.userName)
+  );
   const userToken = useSelector((state) => state.user.value.token);
 
   //FORM
-  const form = useRef();
-  const inputRef = useRef(null);
   const [isEditing, setIsEditing] = useState(false);
+  const form = useRef();
   const handleEdit = () => {
     setIsEditing(!isEditing);
   };
 
-  const editBtnText = isEditing ? "Cancel" : "Edit Name";
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    const newUserName = inputRef.current.value;
-    if (newUserName.trim() !== "") {
-      await fetchEditProfile(newUserName, userToken);
+    if (userName.trim() !== "") {
+      await fetchEditProfile(userName, userToken);
       setIsEditing(false);
-      dispatch(connectedUser({ ...user, userName: newUserName }));
+      dispatch(connectedUser({ ...user, userName: userName }));
       toast.success("Username updated correctly");
+    } else {
+      toast.error("Sorry, Can't use this User Name...");
     }
   };
   return (
-    <>
-      <div className="userHeader">
+    <div className="userHeader">
+      {!isEditing && (
         <h1 className="userTitle">
           Welcome back
           <br />
-          {isEditing ? (
-            <form
-              ref={form}
-              onSubmit={(e) => handleSubmitForm(e)}
-              className="editNameForm"
-            >
-              <UserInfos />
-              <input
-                ref={inputRef}
-                type="text"
-                placeholder="Set new user name ..."
-                className="editInput"
-                minLength="4"
-                required
-                pattern="^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$"
-              />
-              <button type="submit">Valider</button>
-            </form>
-          ) : (
-            userName
-          )}
         </h1>
+      )}
+
+      {isEditing ? (
+        <form
+          ref={form}
+          onSubmit={(e) => {
+            handleSubmitForm(e);
+          }}
+          onChange={(e) => {
+            setUserName(e.target.value);
+          }}
+          className="editNameForm"
+        >
+          <UserInfos userName={userName} />
+          <button type="submit" className="editNameFormBtn">
+            Save
+          </button>
+          <button
+            className="editNameFormBtn"
+            onClick={() => setIsEditing(false)}
+          >
+            Cancel
+          </button>
+        </form>
+      ) : (
+        <span className="userName">{userName}</span>
+      )}
+      {!isEditing && (
         <div onClick={handleEdit} className="EditBtnContainer">
-          <Button text={editBtnText} className="edit-button" />
+          <Button text="Edit Name" className="edit-button" />
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 

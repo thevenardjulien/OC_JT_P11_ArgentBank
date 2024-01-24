@@ -2,31 +2,35 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "./style.scss";
 
-const UserInfos = () => {
+const UserInfos = ({ userName }) => {
   const user = useSelector((state) => state.user.value);
   return (
     <table className="userInfosTable">
       <thead>
         <tr>
-          <th colSpan="2">Personal informations</th>
+          <th colSpan="2" className="tableTitle">
+            Edit user info
+          </th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Email :</td>
-          <td>{user.email}</td>
+          <td>User Name :</td>
+          <td>
+            <input defaultValue={userName}></input>
+          </td>
         </tr>
         <tr>
           <td>First Name :</td>
-          <td>{user.firstName}</td>
+          <td>
+            <input value={user.firstName} disabled></input>
+          </td>
         </tr>
         <tr>
           <td>Last Name :</td>
-          <td>{user.lastName}</td>
-        </tr>
-        <tr>
-          <td>User Name :</td>
-          <td>{user.userName}</td>
+          <td>
+            <input value={user.lastName} disabled></input>
+          </td>
         </tr>
       </tbody>
     </table>
