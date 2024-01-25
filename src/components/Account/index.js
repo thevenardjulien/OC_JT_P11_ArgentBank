@@ -1,7 +1,7 @@
 import React from "react";
+import { toast } from "sonner";
 import Button from "../Button";
 import "./style.scss";
-import { toast } from "sonner";
 
 const Account = ({ accounts }) => {
   const handleClick = () => {

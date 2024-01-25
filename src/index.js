@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./store/store";
-import { router } from "./router";
+import { RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
+import { router } from "./router";
+import { store } from "./store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Toaster />
+      <Toaster richColors />
+
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>

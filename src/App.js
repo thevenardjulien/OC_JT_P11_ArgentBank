@@ -1,9 +1,9 @@
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import { featuresList } from "./services/datas/featuresList";
 import "./App.scss";
+import Features from "./components/Features";
+import Hero from "./components/Hero";
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import { featuresList } from "./services/datas/featuresList";
 
 function App() {
   return (
