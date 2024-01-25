@@ -63,6 +63,7 @@ const ProfileHeader = () => {
             Save
           </button>
           <button
+            type="button"
             className="editNameFormBtn"
             onClick={() => setIsEditing(false)}
           >

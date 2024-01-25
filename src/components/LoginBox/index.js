@@ -35,8 +35,8 @@ const LoginBox = () => {
       if (responseLogin && responseLogin.status === 200) {
         // IF LOGIN OK => GET TOKEN THEN FETCH PROFILE
         const token = responseLogin.body.token;
-        const responseProfile = await fetchProfile(token);
         // GET PROFILE INFOS
+        const responseProfile = await fetchProfile(token);
         const firstName = responseProfile.body.firstName;
         const lastName = responseProfile.body.lastName;
         const userName = responseProfile.body.userName;
@@ -49,11 +49,11 @@ const LoginBox = () => {
         // STORE UPDATE THEN NAVIGATE TO PROFILE
         dispatch(
           connectedUser({
-            email: sessionStorage.getItem("email"),
-            firstName: sessionStorage.getItem("firstName"),
-            lastName: sessionStorage.getItem("lastName"),
-            userName: sessionStorage.getItem("userName"),
-            token: sessionStorage.getItem("token"),
+            email,
+            firstName,
+            lastName,
+            userName,
+            token,
           })
         );
         toast.success("Successful identification");
