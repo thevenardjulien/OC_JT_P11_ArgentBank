@@ -26,21 +26,19 @@ const LoginBox = () => {
     const email = form.current.username.value;
     const password = form.current.password.value;
     // FORM REPORT VALIDITY
-    const userNameInput = form.current[0];
-    const passwordInput = form.current[1];
+
+    const [userNameInput, passwordInput] = form.current;
 
     if (userNameInput.reportValidity() && passwordInput.reportValidity()) {
-      // FETCH LOGIN & GET RESPONSE
+      // FETCH LOGIN
       const responseLogin = await fetchLogin(email, password);
       if (responseLogin && responseLogin.status === 200) {
-        // IF LOGIN OK => GET TOKEN THEN FETCH PROFILE
+        // IF LOGIN OK => GET TOKEN
         const token = responseLogin.body.token;
-        // GET PROFILE INFOS
+        // FETCH PROFILE
         const responseProfile = await fetchProfile(token);
-        const firstName = responseProfile.body.firstName;
-        const lastName = responseProfile.body.lastName;
-        const userName = responseProfile.body.userName;
-        // Update store & session
+        const { firstName, lastName, userName } = responseProfile.body;
+        // UPDATE STORE & SESSION
         dispatch(login({ email, firstName, lastName, userName, token }));
         toast.success("Successful identification");
         navigate("/profile");

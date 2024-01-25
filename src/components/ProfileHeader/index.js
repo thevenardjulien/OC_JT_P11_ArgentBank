@@ -27,7 +27,7 @@ const ProfileHeader = () => {
     if (userName.trim() !== "") {
       await fetchEditProfile(userName, userToken);
       setIsEditing(false);
-      // Update store & session
+      // UPDATE STORE & SESSION
       dispatch(updateUserName(userName));
       toast.success("Username updated correctly");
     } else {

@@ -20,19 +20,29 @@ export const userSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.value = action.payload;
-      sessionStorage.setItem("email", action.payload.email);
-      sessionStorage.setItem("firstName", action.payload.firstName);
-      sessionStorage.setItem("lastName", action.payload.lastName);
-      sessionStorage.setItem("userName", action.payload.userName);
-      sessionStorage.setItem("token", action.payload.token);
+      const propertiesToAdd = [
+        "email",
+        "firstName",
+        "lastName",
+        "userName",
+        "token",
+      ];
+      propertiesToAdd.forEach((property) => {
+        sessionStorage.setItem(property, action.payload[property]);
+      });
     },
     logout: (state) => {
       state.value = "";
-      sessionStorage.removeItem("email");
-      sessionStorage.removeItem("firstName");
-      sessionStorage.removeItem("lastName");
-      sessionStorage.removeItem("userName");
-      sessionStorage.removeItem("token");
+      const propertiesToRemove = [
+        "email",
+        "firstName",
+        "lastName",
+        "userName",
+        "token",
+      ];
+      propertiesToRemove.forEach((property) => {
+        sessionStorage.removeItem(property);
+      });
     },
     updateUserName: (state, action) => {
       state.value = { ...state.value, userName: action.payload };
