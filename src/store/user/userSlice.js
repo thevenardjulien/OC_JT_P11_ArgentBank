@@ -1,4 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loginAction } from "./actions/loginAction";
+import { logoutAction } from "./actions/logoutAction";
+import { updateUserNameAction } from "./actions/updateUserNameAction";
 
 const initialState = sessionStorage.getItem("token")
   ? {
@@ -18,37 +21,9 @@ export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    login: (state, action) => {
-      state.value = action.payload;
-      const propertiesToAdd = [
-        "email",
-        "firstName",
-        "lastName",
-        "userName",
-        "token",
-      ];
-      propertiesToAdd.forEach((property) => {
-        sessionStorage.setItem(property, action.payload[property]);
-      });
-    },
-    logout: (state) => {
-      state.value = "";
-      const propertiesToRemove = [
-        "email",
-        "firstName",
-        "lastName",
-        "userName",
-        "token",
-      ];
-      propertiesToRemove.forEach((property) => {
-        sessionStorage.removeItem(property);
-      });
-    },
-    updateUserName: (state, action) => {
-      state.value = { ...state.value, userName: action.payload };
-      sessionStorage.removeItem("userName");
-      sessionStorage.setItem("userName", action.payload);
-    },
+    login: loginAction,
+    logout: logoutAction,
+    updateUserName: updateUserNameAction,
   },
 });
 

@@ -26,9 +26,7 @@ const LoginBox = () => {
     const email = form.current.username.value;
     const password = form.current.password.value;
     // FORM REPORT VALIDITY
-
     const [userNameInput, passwordInput] = form.current;
-
     if (userNameInput.reportValidity() && passwordInput.reportValidity()) {
       // FETCH LOGIN
       const responseLogin = await fetchLogin(email, password);

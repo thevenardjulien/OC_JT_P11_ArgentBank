@@ -17,7 +17,7 @@ const UserInfos = ({ userName }) => {
         <tr>
           <td>User Name :</td>
           <td>
-            <input defaultValue={userName} minlength="4"></input>
+            <input defaultValue={userName} minLength="4"></input>
           </td>
         </tr>
         <tr>
