@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import Button from "../../components/Button";
 import { fetchEditProfile } from "../../services/fetchs/fetchProfile";
-import { connectedUser } from "../../store/user/userSlice";
+import { updateUserName } from "../../store/user/userSlice";
 import UserInfos from "../UserInfos";
 import "./style.scss";
 
 const ProfileHeader = () => {
   const dispatch = useDispatch();
 
-  const user = useSelector((state) => state.user.value);
   const [userName, setUserName] = useState(
     useSelector((state) => state.user.value.userName)
   );
@@ -28,11 +27,8 @@ const ProfileHeader = () => {
     if (userName.trim() !== "") {
       await fetchEditProfile(userName, userToken);
       setIsEditing(false);
-      // Update Store
-      dispatch(connectedUser({ ...user, userName: userName }));
-      // Update session
-      sessionStorage.removeItem("userName");
-      sessionStorage.setItem("userName", userName);
+      // Update store & session
+      dispatch(updateUserName(userName));
       toast.success("Username updated correctly");
     } else {
       toast.error("Sorry, Can't use this User Name...");

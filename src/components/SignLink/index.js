@@ -1,9 +1,9 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { connectedUser } from "../../store/user/userSlice";
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { logout } from "../../store/user/userSlice";
 import "./style.scss";
 
 const SignLink = () => {
@@ -16,7 +16,8 @@ const SignLink = () => {
         <Link
           to="/"
           className="sign-link-item"
-          onClick={() => dispatch(connectedUser(""))}
+          // Update Store & session
+          onClick={() => dispatch(logout())}
         >
           <FontAwesomeIcon icon={faSignOut} />
           <p>Sign Out</p>

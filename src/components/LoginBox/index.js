@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.scss";
 // REDUX
 import { useDispatch } from "react-redux";
-import { connectedUser } from "../../store/user/userSlice";
+import { login } from "../../store/user/userSlice";
 // FONTAWESOME
 import { faBell, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,22 +40,8 @@ const LoginBox = () => {
         const firstName = responseProfile.body.firstName;
         const lastName = responseProfile.body.lastName;
         const userName = responseProfile.body.userName;
-        // SET SESSION
-        sessionStorage.setItem("email", email);
-        sessionStorage.setItem("firstName", firstName);
-        sessionStorage.setItem("lastName", lastName);
-        sessionStorage.setItem("userName", userName);
-        sessionStorage.setItem("token", token);
-        // STORE UPDATE THEN NAVIGATE TO PROFILE
-        dispatch(
-          connectedUser({
-            email,
-            firstName,
-            lastName,
-            userName,
-            token,
-          })
-        );
+        // Update store & session
+        dispatch(login({ email, firstName, lastName, userName, token }));
         toast.success("Successful identification");
         navigate("/profile");
       }
