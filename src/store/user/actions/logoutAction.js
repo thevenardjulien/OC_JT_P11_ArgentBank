@@ -1,4 +1,4 @@
-export const logoutAction = (state, action) => {
+export const logoutAction = (state) => {
   state.value = "";
   sessionStorage.clear();
 };
