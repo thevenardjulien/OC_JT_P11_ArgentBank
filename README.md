@@ -7,4 +7,5 @@ Implémentez le front-end d'une application bancaire avec React. Afficher les do
 ## Pre-requis
 
 [- Node.js v12](https://nodejs.org/en/)
+
 [- MongoDB Community Server](https://www.mongodb.com/try/download/community)
