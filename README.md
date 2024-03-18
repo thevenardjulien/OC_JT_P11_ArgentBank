@@ -5,4 +5,6 @@ Projet réalisé dans le cadre de ma formation Développeur web OpenClassrooms :
 Implémentez le front-end d'une application bancaire avec React. Afficher les données du back end sur l'interface via des appels API. Configurer des routes API pour la communication client / serveur. Implémenter la gestion des données avec Redux pour assurer le fonctionnement du front.
 
 ## Pre-requis
-- Récupération du BackEnd : https://github.com/OpenClassrooms-Student-Center/ArgentBank-website
+
+[- Node.js v12](https://nodejs.org/en/)
+[- MongoDB Community Server](https://www.mongodb.com/try/download/community)
