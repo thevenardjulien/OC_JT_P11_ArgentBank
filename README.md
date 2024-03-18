@@ -6,15 +6,4 @@ Implémentez le front-end d'une application bancaire avec React. Afficher les do
 
 ## Pre-requis
 
-[- Node.js v12](https://nodejs.org/en/)
-[- MongoDB Community Server](https://www.mongodb.com/try/download/community)
-
-Veuillez vous assurer d'avoir les bonnes versions :
-
-# Check Node.js version
-node --version
-
-# Check Mongo version
-mongo --version
-
-## Pre-requis
+Récupérer l'[API](https://github.com/OpenClassrooms-Student-Center/ArgentBank-website) et suivre les étapes d'installation.
