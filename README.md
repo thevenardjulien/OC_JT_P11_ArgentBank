@@ -19,7 +19,7 @@ npm run dev:server
 npm run populate-db
 
 ## Lancement de l'application
-- `yarn start`
+- `npm start`
 
 ## Tests
 - `yarn test`
